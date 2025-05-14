@@ -35,7 +35,7 @@ fun TicTacToeScreen(
 
         Spacer(modifier = Modifier.height(SpacerPadding))
 
-        AnimatedVisibility(visible = !uiState.isFinished) {
+        AnimatedVisibility(visible = !uiState.isFinished && uiState.error == null) {
             Text("Current Player: ${uiState.currentTurn}")
         }
 

@@ -1,6 +1,6 @@
 package com.example.utils
 
-import com.TicTacToe
+import com.TicTacToeHandler
 import java.util.Scanner
 
 private var isGameFinished = false
@@ -8,14 +8,14 @@ private var isGameFinished = false
 fun main() {
 
     val scanner = Scanner(System.`in`)
-    val ticTacToe = TicTacToe()
+    val ticTacToe = TicTacToeHandler()
 
     displayBoard(ticTacToe.getBoard())
     println("Player X: ")
 
     while (!isGameFinished) {
         val move = scanner.nextLine()
-        val statusGame = ticTacToe.makMove(move)
+        val statusGame = ticTacToe.makeMove(move)
 
         displayBoard(ticTacToe.getBoard())
         statusGame.validateGame()
