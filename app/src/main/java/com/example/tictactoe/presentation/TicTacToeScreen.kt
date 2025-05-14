@@ -10,6 +10,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -35,20 +38,39 @@ fun TicTacToeScreen(
 
         Spacer(modifier = Modifier.height(SpacerPadding))
 
-        AnimatedVisibility(visible = !uiState.isFinished && uiState.error == null) {
-            Text("Current Player: ${uiState.currentTurn}")
+        var textState by remember { mutableStateOf("") }
+
+        var isVisibleStateText by remember { mutableStateOf(false) }
+
+        when {
+            !uiState.isFinished && uiState.error == null -> {
+                textState = "Current Player: ${uiState.currentTurn}"
+                isVisibleStateText = true
+            }
+
+            uiState.error != null -> {
+                textState = "${uiState.error}"
+                isVisibleStateText = true
+            }
+
+            uiState.winner != null -> {
+                textState = "Winner Player: ${uiState.winner}"
+                isVisibleStateText = true
+            }
+
+            uiState.isDraw -> {
+                textState = "Draw"
+                isVisibleStateText = true
+            }
+
+            else -> {
+
+                isVisibleStateText = false
+            }
         }
 
-        AnimatedVisibility(visible = uiState.error != null) {
-            Text(text = "${uiState.error}")
-        }
-
-        AnimatedVisibility(visible = uiState.winner != null) {
-            Text("Winner Player: ${uiState.winner}")
-        }
-
-        AnimatedVisibility(visible = uiState.isDraw) {
-            Text("Draw")
+        AnimatedVisibility(visible = isVisibleStateText) {
+            Text(textState)
         }
     }
 }

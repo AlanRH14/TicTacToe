@@ -1,6 +1,6 @@
 package com.example.utils
 
-import com.TicTacToeHandler
+import com.example.tictactoe.domain.TicTacToeHandler
 import java.util.Scanner
 
 private var isGameFinished = false

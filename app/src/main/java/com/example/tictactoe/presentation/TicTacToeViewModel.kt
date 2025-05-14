@@ -2,7 +2,7 @@ package com.example.tictactoe.presentation
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
-import com.TicTacToeHandler
+import com.example.tictactoe.domain.TicTacToeHandler
 import com.example.utils.StatusGame
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -42,10 +42,5 @@ class TicTacToeViewModel : ViewModel() {
                 _uiState.value = _uiState.value.copy(error = statusGame.message)
             }
         }
-    }
-
-    private fun updateBoard() {
-        _uiState.value = _uiState.value.copy(board = emptyList())
-        _uiState.value = _uiState.value.copy(board = ticTacToe.getBoard())
     }
 }

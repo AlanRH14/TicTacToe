@@ -1,4 +1,4 @@
-package com
+package com.example.tictactoe.domain
 
 import com.example.tictactoe.domain.model.TicTacToeData
 import com.example.utils.StatusGame
