@@ -28,7 +28,7 @@ fun Board(
                             .border(1.dp, MaterialTheme.colorScheme.onSecondary)
                             .clickable {
                                 if (!uiState.isFinished) {
-                                    onClickCell(cell.toString())
+                                    //onClickCell(cell.toString())
                                 }
                             }
                     )
