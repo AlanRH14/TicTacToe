@@ -8,13 +8,17 @@ class TicTacToe() {
 
     fun getBoard() = ticTacToe.board
 
-    fun makMove(move: String) {
-        val position = move.split(",").map { it.toInt() }
+    fun makMove(move: String): StatusGame {
+        val positions = move.split(",").map { it.toInt() }
+        if (isMoveValid(positions)) return StatusGame.Error(message = "Invalid move, try again")
+        setMove(positions)
+
+        return getStatusGame()
     }
 
     private fun isMoveValid(positions: List<Int>): Boolean {
         return try {
-            ticTacToe.board[0][1] != ' '
+            ticTacToe.board[positions[0]][positions[1]] != ' '
         } catch (e: Exception) {
             true
         }
