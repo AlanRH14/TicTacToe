@@ -6,7 +6,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -19,16 +19,16 @@ fun Board(
     onClickCell: (String) -> Unit
 ) {
     LazyColumn {
-        items(uiState.board) { row ->
+        itemsIndexed(uiState.board) { indexRow, row ->
             LazyRow {
-                items(row) { cell ->
+                itemsIndexed(row) { indexCell, cell ->
                     Box(
                         modifier = Modifier
                             .size(80.dp)
-                            .border(1.dp, MaterialTheme.colorScheme.onSecondary)
+                            .border(1.dp, MaterialTheme.colorScheme.onSurface)
                             .clickable {
                                 if (!uiState.isFinished) {
-                                    //onClickCell(cell.toString())
+                                    onClickCell("$indexRow,$indexCell")
                                 }
                             }
                     )

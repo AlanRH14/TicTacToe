@@ -11,9 +11,12 @@ class TicTacToeViewModel : ViewModel() {
     private val _uiState = MutableStateFlow(UIState())
     val uiState = _uiState.asStateFlow()
 
+    init {
+        _uiState.value = _uiState.value.copy(board = ticTacToe.getBoard())
+    }
+
     fun makeMove(move: String) {
-        val statusGame = ticTacToe.makMove(move)
-        when (statusGame) {
+        when (val statusGame = ticTacToe.makMove(move)) {
             is StatusGame.Progress -> {
                 _uiState.value = _uiState.value.copy(currentTurn = statusGame.turn)
             }
