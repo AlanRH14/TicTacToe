@@ -30,7 +30,7 @@ class TicTacToeViewModel : ViewModel() {
             }
 
             is StatusGame.Error -> {
-                _uiState.value = _uiState.value.copy(error = statusGame.message)
+                _uiState.value = _uiState.value.copy(error = statusGame.message, isFinished = true)
             }
         }
     }
