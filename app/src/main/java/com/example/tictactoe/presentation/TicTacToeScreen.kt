@@ -25,7 +25,7 @@ fun TicTacToeScreen(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Board(uiState) {
-
+            viewModel.makeMove(it)
         }
     }
 }
