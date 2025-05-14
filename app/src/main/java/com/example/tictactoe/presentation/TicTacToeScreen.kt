@@ -64,7 +64,6 @@ fun TicTacToeScreen(
             }
 
             else -> {
-
                 isVisibleStateText = false
             }
         }

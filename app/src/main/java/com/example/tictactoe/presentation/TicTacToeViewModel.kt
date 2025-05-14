@@ -25,7 +25,10 @@ class TicTacToeViewModel : ViewModel() {
 
             is StatusGame.Draw -> {
                 Log.d("LordMiau", "Draw")
-                _uiState.value = _uiState.value.copy(isDraw = true, isFinished = false)
+                _uiState.value = _uiState.value.copy(
+                    isDraw = true,
+                    isFinished = true
+                )
             }
 
             is StatusGame.Win -> {
