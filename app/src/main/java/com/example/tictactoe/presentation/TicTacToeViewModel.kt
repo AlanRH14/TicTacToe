@@ -6,7 +6,7 @@ import com.example.utils.StatusGame
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
-class TicTacToeViewModel() : ViewModel() {
+class TicTacToeViewModel : ViewModel() {
     private val ticTacToe = TicTacToe()
     private val _uiState = MutableStateFlow(UIState())
     val uiState = _uiState.asStateFlow()
