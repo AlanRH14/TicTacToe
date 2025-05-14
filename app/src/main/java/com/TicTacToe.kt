@@ -3,7 +3,7 @@ package com
 import com.example.tictactoe.domain.model.TicTacToeData
 import com.example.utils.StatusGame
 
-class TicTacToe() {
+class TicTacToe {
     private var ticTacToe = TicTacToeData()
 
     fun getBoard() = ticTacToe.board
