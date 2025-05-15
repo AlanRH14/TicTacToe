@@ -1,4 +1,4 @@
-package com.example.utils
+package com.example.tictactoe.utils
 
 import com.example.tictactoe.domain.TicTacToeHandler
 import java.util.Scanner
