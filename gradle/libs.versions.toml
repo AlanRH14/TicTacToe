@@ -11,6 +11,7 @@ composeBom = "2024.09.00"
 kspVersion = "2.0.0-1.0.21"
 hiltAndroid = "2.55"
 hiltAndroidxNavigationCompose = "1.2.0"
+coreSplashscreen = "1.0.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -30,6 +31,7 @@ androidx-material3 = { group = "androidx.compose.material3", name = "material3" 
 hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", name = "hilt-android-compiler", version.ref = "hiltAndroid" }
 hilt-androidx-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", name = "hilt-navigation-compose", version.ref = "hiltAndroidxNavigationCompose" }
 hilt-android = { module = "com.google.dagger:hilt-android", name = "hilt-android", version.ref = "hiltAndroid" }
+androidx-core-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "coreSplashscreen" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

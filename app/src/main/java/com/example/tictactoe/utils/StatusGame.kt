@@ -1,4 +1,4 @@
-package com.example.utils
+package com.example.tictactoe.utils
 
 sealed class StatusGame {
     data class Progress(val turn: Char) : StatusGame()
