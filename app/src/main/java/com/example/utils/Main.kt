@@ -4,11 +4,10 @@ import com.example.tictactoe.domain.TicTacToeHandler
 import java.util.Scanner
 
 private var isGameFinished = false
+lateinit var ticTacToe: TicTacToeHandler
 
 fun main() {
-
     val scanner = Scanner(System.`in`)
-    val ticTacToe = TicTacToeHandler()
 
     displayBoard(ticTacToe.getBoard())
     println("Player X: ")
