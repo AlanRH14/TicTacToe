@@ -3,8 +3,9 @@ package com.example.tictactoe.domain
 import com.example.tictactoe.domain.model.TicTacToeData
 import com.example.utils.StatusGame
 
-class TicTacToeHandler {
-    private var ticTacToeData = TicTacToeData()
+class TicTacToeHandler(
+    private var ticTacToeData: TicTacToeData
+) {
 
     fun getBoard() = ticTacToeData.board
 
