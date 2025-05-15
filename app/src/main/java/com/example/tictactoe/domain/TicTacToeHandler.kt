@@ -2,8 +2,9 @@ package com.example.tictactoe.domain
 
 import com.example.tictactoe.domain.model.TicTacToeData
 import com.example.utils.StatusGame
+import javax.inject.Inject
 
-class TicTacToeHandler(
+class TicTacToeHandler @Inject constructor(
     private var ticTacToeData: TicTacToeData
 ) {
 

@@ -15,14 +15,14 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.tictactoe.presentation.widgets.Board
 import com.example.tictactoe.ui.theme.SpacerPadding
 
 @Composable
 fun TicTacToeScreen(
     modifier: Modifier = Modifier,
-    viewModel: TicTacToeViewModel = viewModel()
+    viewModel: TicTacToeViewModel = hiltViewModel()
 ) {
     val uiState by viewModel.uiState.collectAsState()
 
