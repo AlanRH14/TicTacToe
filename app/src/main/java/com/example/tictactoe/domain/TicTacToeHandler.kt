@@ -20,6 +20,17 @@ class TicTacToeHandler @Inject constructor(
         return getStatusGame()
     }
 
+    fun restartGame() {
+        ticTacToeData = ticTacToeData.copy(
+            board = mutableListOf(
+                mutableListOf(' ', ' ', ' '),
+                mutableListOf(' ', ' ', ' '),
+                mutableListOf(' ', ' ', ' '),
+            ),
+            turn = 'X'
+        )
+    }
+
     private fun isMoveValid(positions: List<Int>): Boolean {
         return try {
             ticTacToeData.board[positions[0]][positions[1]] != ' '
