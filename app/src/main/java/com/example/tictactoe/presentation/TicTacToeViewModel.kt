@@ -45,4 +45,17 @@ class TicTacToeViewModel @Inject constructor(
             }
         }
     }
+
+    fun restartGame() {
+        ticTacToe.restartGame()
+
+        _uiState.value = _uiState.value.copy(
+            board = ticTacToe.getBoard(),
+            currentTurn = 'X',
+            error = null,
+            winner = null,
+            isFinished = false,
+            isDraw = false
+        )
+    }
 }
