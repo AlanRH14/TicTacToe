@@ -4,7 +4,7 @@ import com.example.tictactoe.domain.TicTacToeHandler
 import com.example.tictactoe.domain.model.TicTacToeData
 import org.koin.dsl.module
 
-val TicTacModule = module {
+val ticTacModule = module {
     single { TicTacToeData() }
 
     single { TicTacToeHandler(ticTacToeData = get()) }
