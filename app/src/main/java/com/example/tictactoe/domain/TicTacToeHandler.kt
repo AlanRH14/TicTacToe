@@ -33,7 +33,7 @@ class TicTacToeHandler(
     private fun isMoveValid(positions: List<Int>): Boolean {
         return try {
             ticTacToeData.board[positions[0]][positions[1]] != ' '
-        } catch (e: Exception) {
+        } catch (_: Exception) {
             true
         }
     }
