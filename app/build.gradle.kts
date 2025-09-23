@@ -60,7 +60,7 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
     implementation(libs.koin.android)
-    implementation(libs.koin.androidx.compsoe)
+    implementation(libs.koin.androidx.compose)
 
     implementation(libs.hilt.android)
     ksp(libs.hilt.android.compiler)
