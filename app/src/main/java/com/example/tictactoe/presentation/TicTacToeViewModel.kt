@@ -8,7 +8,6 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import javax.inject.Inject
 
-@HiltViewModel
 class TicTacToeViewModel @Inject constructor(
     private val ticTacToe: TicTacToeHandler
 ) : ViewModel() {
