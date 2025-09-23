@@ -62,7 +62,6 @@ dependencies {
     implementation(libs.koin.android)
     implementation(libs.koin.androidx.compose)
 
-    ksp(libs.hilt.android.compiler)
     implementation(libs.hilt.androidx.navigation.compose)
 
     implementation(libs.androidx.core.splashscreen)
