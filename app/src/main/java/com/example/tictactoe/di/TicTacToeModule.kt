@@ -11,10 +11,4 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object TicTacToeModule {
-
-    @Provides
-    @Singleton
-    fun providesTicTacToeData(): TicTacToeData {
-        return TicTacToeData()
-    }
 }
