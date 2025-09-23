@@ -17,7 +17,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.tictactoe.R
 import com.example.tictactoe.presentation.widgets.Board
 import com.example.tictactoe.ui.theme.SpacerPadding
