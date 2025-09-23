@@ -3,13 +3,10 @@ package com.example.tictactoe.presentation
 import androidx.lifecycle.ViewModel
 import com.example.tictactoe.domain.TicTacToeHandler
 import com.example.tictactoe.utils.StatusGame
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import javax.inject.Inject
 
-@HiltViewModel
-class TicTacToeViewModel @Inject constructor(
+class TicTacToeViewModel(
     private val ticTacToe: TicTacToeHandler
 ) : ViewModel() {
     private val _uiState = MutableStateFlow(UIState())

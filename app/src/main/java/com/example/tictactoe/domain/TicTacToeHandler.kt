@@ -2,9 +2,8 @@ package com.example.tictactoe.domain
 
 import com.example.tictactoe.domain.model.TicTacToeData
 import com.example.tictactoe.utils.StatusGame
-import javax.inject.Inject
 
-class TicTacToeHandler @Inject constructor(
+class TicTacToeHandler(
     private var ticTacToeData: TicTacToeData
 ) {
 
@@ -34,7 +33,7 @@ class TicTacToeHandler @Inject constructor(
     private fun isMoveValid(positions: List<Int>): Boolean {
         return try {
             ticTacToeData.board[positions[0]][positions[1]] != ' '
-        } catch (e: Exception) {
+        } catch (_: Exception) {
             true
         }
     }

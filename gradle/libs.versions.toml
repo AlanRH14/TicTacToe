@@ -9,9 +9,8 @@ lifecycleRuntimeKtx = "2.9.4"
 activityCompose = "1.11.0"
 composeBom = "2025.09.00"
 kspVersion = "2.1.20-2.0.1"
-hiltAndroid = "2.57.1"
-hiltAndroidxNavigationCompose = "1.3.0"
 coreSplashscreen = "1.0.1"
+koinAndroid = "4.1.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -28,9 +27,10 @@ androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-toolin
 androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
-hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", name = "hilt-android-compiler", version.ref = "hiltAndroid" }
-hilt-androidx-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", name = "hilt-navigation-compose", version.ref = "hiltAndroidxNavigationCompose" }
-hilt-android = { module = "com.google.dagger:hilt-android", name = "hilt-android", version.ref = "hiltAndroid" }
+
+koin-android = { module = "io.insert-koin:koin-android", version.ref = "koinAndroid" }
+koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koinAndroid"}
+
 androidx-core-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "coreSplashscreen" }
 
 [plugins]
@@ -38,5 +38,4 @@ android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "kspVersion" }
-hilt = { id = "com.google.dagger.hilt.android", version.ref = "hiltAndroid" }
 
