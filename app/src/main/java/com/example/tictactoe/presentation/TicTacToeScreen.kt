@@ -21,11 +21,12 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.tictactoe.R
 import com.example.tictactoe.presentation.widgets.Board
 import com.example.tictactoe.ui.theme.SpacerPadding
+import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun TicTacToeScreen(
     modifier: Modifier = Modifier,
-    viewModel: TicTacToeViewModel = hiltViewModel()
+    viewModel: TicTacToeViewModel = koinViewModel()
 ) {
     val uiState by viewModel.uiState.collectAsState()
 
