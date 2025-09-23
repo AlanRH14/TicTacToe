@@ -2,7 +2,6 @@ package com.example.tictactoe.domain
 
 import com.example.tictactoe.domain.model.TicTacToeData
 import com.example.tictactoe.utils.StatusGame
-import javax.inject.Inject
 
 class TicTacToeHandler(
     private var ticTacToeData: TicTacToeData
