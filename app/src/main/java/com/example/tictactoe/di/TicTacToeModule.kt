@@ -17,10 +17,4 @@ object TicTacToeModule {
     fun providesTicTacToeData(): TicTacToeData {
         return TicTacToeData()
     }
-
-    @Provides
-    @Singleton
-    fun providesTicTacToeHandler(ticTacToeData: TicTacToeData): TicTacToeHandler {
-        return TicTacToeHandler(ticTacToeData = ticTacToeData)
-    }
 }
