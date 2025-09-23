@@ -31,7 +31,7 @@ androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 
 koin-android = { module = "io.insert-koin:koin-android", version.ref = "koinAndroid" }
-koin-androidx-compsoe = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koinAndroid"}
+koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koinAndroid"}
 
 hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", name = "hilt-android-compiler", version.ref = "hiltAndroid" }
 hilt-androidx-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", name = "hilt-navigation-compose", version.ref = "hiltAndroidxNavigationCompose" }
