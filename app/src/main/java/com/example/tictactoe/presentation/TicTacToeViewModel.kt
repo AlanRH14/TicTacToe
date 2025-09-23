@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import javax.inject.Inject
 
-class TicTacToeViewModel @Inject constructor(
+class TicTacToeViewModel(
     private val ticTacToe: TicTacToeHandler
 ) : ViewModel() {
     private val _uiState = MutableStateFlow(UIState())
