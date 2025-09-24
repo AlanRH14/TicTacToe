@@ -37,7 +37,7 @@ fun TicTacToeScreen(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Board(uiState) {
-            viewModel.onEvent(event = TicTacToeUIEvent.MakeMove(it))
+            viewModel.onEvent(event = TicTacToeUIEvent.MakeMove(move = it))
         }
 
         Spacer(modifier = Modifier.height(SpacerPadding))
