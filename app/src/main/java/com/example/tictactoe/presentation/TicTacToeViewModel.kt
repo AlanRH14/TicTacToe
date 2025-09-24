@@ -13,7 +13,7 @@ class TicTacToeViewModel(
     private val _uiState = MutableStateFlow(UIState())
     val uiState = _uiState.asStateFlow()
 
-    private fun onEvent(event: TicTacToeUIEvent) {
+    fun onEvent(event: TicTacToeUIEvent) {
         when (event) {
             is TicTacToeUIEvent.DrawBoard -> updateBoard()
             is TicTacToeUIEvent.MakeMove -> makeMove(move = event.move)
