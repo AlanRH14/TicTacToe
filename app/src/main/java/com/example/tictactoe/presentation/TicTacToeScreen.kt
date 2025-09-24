@@ -47,13 +47,11 @@ fun TicTacToeScreen(
 
         Spacer(modifier = Modifier.height(SpacerPadding))
 
-        var textState by remember { mutableStateOf("") }
-
         var isVisibleStateText by remember { mutableStateOf(false) }
 
         when {
             !uiState.isFinished && uiState.error == null -> {
-                textState = "Current Player: ${uiState.currentTurn}"
+                viewModel.onEvent(TicTacToeUIEvent.UpdateMove(move = "Current Player: ${uiState.currentTurn}"))
                 isVisibleStateText = true
             }
 
