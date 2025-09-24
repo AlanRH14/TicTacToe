@@ -18,6 +18,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.example.tictactoe.R
+import com.example.tictactoe.presentation.mvi.TicTacToeUIEvent
 import com.example.tictactoe.presentation.widgets.Board
 import com.example.tictactoe.ui.theme.SpacerPadding
 import org.koin.androidx.compose.koinViewModel
@@ -36,7 +37,7 @@ fun TicTacToeScreen(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Board(uiState) {
-            viewModel.makeMove(it)
+            viewModel.onEvent(event = TicTacToeUIEvent.MakeMove(it))
         }
 
         Spacer(modifier = Modifier.height(SpacerPadding))
