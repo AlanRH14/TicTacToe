@@ -21,8 +21,12 @@ class TicTacToeViewModel(
         }
     }
 
-    init {
+    private fun updateBoard() {
         _uiState.value = _uiState.value.copy(board = ticTacToe.getBoard())
+    }
+
+    init {
+
     }
 
     fun makeMove(move: String) {
