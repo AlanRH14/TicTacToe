@@ -80,7 +80,7 @@ fun TicTacToeScreen(
 
         if (uiState.isFinished) {
             Button(
-                onClick = { viewModel.restartGame() }
+                onClick = { viewModel.onEvent(event = TicTacToeUIEvent.RestartGame()) }
             ) {
                 Text(text = stringResource(R.string.restart_button))
             }
