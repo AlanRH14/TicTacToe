@@ -12,9 +12,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -47,38 +44,35 @@ fun TicTacToeScreen(
 
         Spacer(modifier = Modifier.height(SpacerPadding))
 
-        var textState by remember { mutableStateOf("") }
-
-        var isVisibleStateText by remember { mutableStateOf(false) }
 
         when {
             !uiState.isFinished && uiState.error == null -> {
-                textState = "Current Player: ${uiState.currentTurn}"
-                isVisibleStateText = true
+                viewModel.onEvent(event = TicTacToeUIEvent.UpdateText(text = "Current Player: ${uiState.currentTurn}"))
+                viewModel.onEvent(event = TicTacToeUIEvent.UpdateVisibilityText(isVisible = true))
             }
 
             uiState.error != null -> {
-                textState = "${uiState.error}"
-                isVisibleStateText = true
+                viewModel.onEvent(event = TicTacToeUIEvent.UpdateText(text = "${uiState.error}"))
+                viewModel.onEvent(event = TicTacToeUIEvent.UpdateVisibilityText(isVisible = true))
             }
 
             uiState.winner != null -> {
-                textState = "Winner Player: ${uiState.winner}"
-                isVisibleStateText = true
+                viewModel.onEvent(event = TicTacToeUIEvent.UpdateText(text = "Winner Player: ${uiState.winner}"))
+                viewModel.onEvent(event = TicTacToeUIEvent.UpdateVisibilityText(isVisible = true))
             }
 
             uiState.isDraw -> {
-                textState = "Draw"
-                isVisibleStateText = true
+                viewModel.onEvent(event = TicTacToeUIEvent.UpdateText(text = "Draw"))
+                viewModel.onEvent(event = TicTacToeUIEvent.UpdateVisibilityText(isVisible = true))
             }
 
             else -> {
-                isVisibleStateText = false
+                viewModel.onEvent(event = TicTacToeUIEvent.UpdateVisibilityText(isVisible = false))
             }
         }
 
-        AnimatedVisibility(visible = isVisibleStateText) {
-            Text(textState)
+        AnimatedVisibility(visible = uiState.isVisibleText) {
+            Text(text = uiState.textState)
         }
 
         Spacer(modifier = Modifier.height(SpacerPadding))

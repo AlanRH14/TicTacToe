@@ -15,15 +15,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.tictactoe.presentation.UIState
+import com.example.tictactoe.presentation.mvi.TicTacToeState
 
 @Composable
 fun Board(
-    uiState: UIState,
+    ticTacToeState: TicTacToeState,
     onClickCell: (String) -> Unit
 ) {
     LazyColumn {
-        itemsIndexed(uiState.board) { indexRow, row ->
+        itemsIndexed(ticTacToeState.board) { indexRow, row ->
             LazyRow {
                 itemsIndexed(row) { indexCell, cell ->
                     Box(
@@ -31,7 +31,7 @@ fun Board(
                             .size(80.dp)
                             .border(1.dp, MaterialTheme.colorScheme.onSurface)
                             .clickable {
-                                if (!uiState.isFinished) {
+                                if (!ticTacToeState.isFinished) {
                                     onClickCell("$indexRow,$indexCell")
                                 }
                             },
