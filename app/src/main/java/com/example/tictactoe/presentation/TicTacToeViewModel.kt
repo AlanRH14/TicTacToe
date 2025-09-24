@@ -38,10 +38,12 @@ class TicTacToeViewModel(
             }
 
             is StatusGame.Draw -> {
-                _uiState.value = _uiState.value.copy(
-                    isDraw = true,
-                    isFinished = true
-                )
+                _uiState.update {
+                    it.copy(
+                        isDraw = true,
+                        isFinished = true
+                    )
+                }
             }
 
             is StatusGame.Win -> {
