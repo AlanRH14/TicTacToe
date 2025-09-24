@@ -61,7 +61,7 @@ fun TicTacToeScreen(
             }
 
             uiState.winner != null -> {
-                textState = "Winner Player: ${uiState.winner}"
+                viewModel.onEvent(event = TicTacToeUIEvent.UpdateMove(text = "Winner Player: ${uiState.winner}"))
                 isVisibleStateText = true
             }
 
