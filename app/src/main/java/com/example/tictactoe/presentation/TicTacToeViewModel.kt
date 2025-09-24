@@ -47,11 +47,13 @@ class TicTacToeViewModel(
             }
 
             is StatusGame.Win -> {
-                _uiState.value = _uiState.value.copy(
-                    winner = statusGame.turn,
-                    isFinished = true,
-                    error = null
-                )
+                _uiState.update {
+                    it.copy(
+                        winner = statusGame.turn,
+                        isFinished = true,
+                        error = null
+                    )
+                }
             }
 
             is StatusGame.Error -> {
