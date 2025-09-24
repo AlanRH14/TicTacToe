@@ -16,6 +16,7 @@ class TicTacToeViewModel(
     private fun onEvent(event: TicTacToeUIEvent) {
         when (event) {
             is TicTacToeUIEvent.DrawBoard -> updateBoard()
+            is TicTacToeUIEvent.MakeMove -> makeMove(move = event.move)
         }
     }
 
