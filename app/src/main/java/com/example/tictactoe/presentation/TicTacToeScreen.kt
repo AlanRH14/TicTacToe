@@ -70,7 +70,7 @@ fun TicTacToeScreen(
             }
 
             else -> {
-                isVisibleStateText = false
+                viewModel.onEvent(event = TicTacToeUIEvent.UpdateVisibilityText(isVisible = false))
             }
         }
 
