@@ -24,7 +24,7 @@ class TicTacToeViewModel(
         _uiState.value = _uiState.value.copy(board = ticTacToe.getBoard())
     }
 
-    fun makeMove(move: String) {
+    private fun makeMove(move: String) {
         when (val statusGame = ticTacToe.makeMove(move)) {
             is StatusGame.Progress -> {
                 _uiState.value = _uiState.value.copy(currentTurn = statusGame.turn, error = null)
