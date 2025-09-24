@@ -3,7 +3,7 @@ package com.example.tictactoe.presentation
 import androidx.lifecycle.ViewModel
 import com.example.tictactoe.domain.TicTacToeHandler
 import com.example.tictactoe.presentation.mvi.TicTacToeUIEvent
-import com.example.tictactoe.presentation.mvi.UIState
+import com.example.tictactoe.presentation.mvi.TicTacToeState
 import com.example.tictactoe.utils.StatusGame
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -12,8 +12,8 @@ import kotlinx.coroutines.flow.update
 class TicTacToeViewModel(
     private val ticTacToe: TicTacToeHandler
 ) : ViewModel() {
-    private val _uiState = MutableStateFlow(UIState())
-    val uiState = _uiState.asStateFlow()
+    private val _ticTacToeState = MutableStateFlow(TicTacToeState())
+    val uiState = _ticTacToeState.asStateFlow()
 
     fun onEvent(event: TicTacToeUIEvent) {
         when (event) {
@@ -26,13 +26,13 @@ class TicTacToeViewModel(
     }
 
     private fun updateBoard() {
-        _uiState.update { it.copy(board = ticTacToe.getBoard()) }
+        _ticTacToeState.update { it.copy(board = ticTacToe.getBoard()) }
     }
 
     private fun makeMove(move: String) {
         when (val statusGame = ticTacToe.makeMove(move)) {
             is StatusGame.Progress -> {
-                _uiState.update {
+                _ticTacToeState.update {
                     it.copy(
                         currentTurn = statusGame.turn,
                         error = null
@@ -41,7 +41,7 @@ class TicTacToeViewModel(
             }
 
             is StatusGame.Draw -> {
-                _uiState.update {
+                _ticTacToeState.update {
                     it.copy(
                         isDraw = true,
                         isFinished = true
@@ -50,7 +50,7 @@ class TicTacToeViewModel(
             }
 
             is StatusGame.Win -> {
-                _uiState.update {
+                _ticTacToeState.update {
                     it.copy(
                         winner = statusGame.turn,
                         isFinished = true,
@@ -60,7 +60,7 @@ class TicTacToeViewModel(
             }
 
             is StatusGame.Error -> {
-                _uiState.update { it.copy(error = statusGame.message) }
+                _ticTacToeState.update { it.copy(error = statusGame.message) }
             }
         }
     }
@@ -68,7 +68,7 @@ class TicTacToeViewModel(
     private fun restartGame() {
         ticTacToe.restartGame()
 
-        _uiState.update {
+        _ticTacToeState.update {
             it.copy(
                 board = ticTacToe.getBoard(),
                 currentTurn = 'X',
@@ -81,10 +81,10 @@ class TicTacToeViewModel(
     }
 
     private fun updateText(text: String) {
-        _uiState.update { it.copy(textState = text) }
+        _ticTacToeState.update { it.copy(textState = text) }
     }
 
     private fun updateVisibilityText(isVisible: Boolean) {
-        _uiState.update { it.copy(isVisibleText = isVisible) }
+        _ticTacToeState.update { it.copy(isVisibleText = isVisible) }
     }
 }

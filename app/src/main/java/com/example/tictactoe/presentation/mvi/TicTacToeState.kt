@@ -1,6 +1,6 @@
 package com.example.tictactoe.presentation.mvi
 
-data class UIState(
+data class TicTacToeState(
     val board: List<MutableList<Char>> = emptyList(),
     val textState: String = "",
     val isVisibleText: Boolean = false,
