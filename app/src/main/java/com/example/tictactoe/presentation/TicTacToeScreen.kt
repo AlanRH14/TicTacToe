@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -18,6 +19,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.example.tictactoe.R
+import com.example.tictactoe.presentation.mvi.TicTacToeUIEvent
 import com.example.tictactoe.presentation.widgets.Board
 import com.example.tictactoe.ui.theme.SpacerPadding
 import org.koin.androidx.compose.koinViewModel
@@ -29,6 +31,10 @@ fun TicTacToeScreen(
 ) {
     val uiState by viewModel.uiState.collectAsState()
 
+    LaunchedEffect(key1 = true) {
+        viewModel.onEvent(event = TicTacToeUIEvent.DrawBoard)
+    }
+
     Column(
         modifier =
             modifier.fillMaxSize(),
@@ -36,7 +42,7 @@ fun TicTacToeScreen(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Board(uiState) {
-            viewModel.makeMove(it)
+            viewModel.onEvent(event = TicTacToeUIEvent.MakeMove(move = it))
         }
 
         Spacer(modifier = Modifier.height(SpacerPadding))
@@ -79,7 +85,7 @@ fun TicTacToeScreen(
 
         if (uiState.isFinished) {
             Button(
-                onClick = { viewModel.restartGame() }
+                onClick = { viewModel.onEvent(event = TicTacToeUIEvent.RestartGame) }
             ) {
                 Text(text = stringResource(R.string.restart_button))
             }
