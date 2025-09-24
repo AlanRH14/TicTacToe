@@ -66,7 +66,7 @@ fun TicTacToeScreen(
             }
 
             uiState.isDraw -> {
-                textState = "Draw"
+                viewModel.onEvent(event = TicTacToeUIEvent.UpdateMove(text = "Draw"))
                 isVisibleStateText = true
             }
 
