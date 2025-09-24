@@ -20,6 +20,7 @@ class TicTacToeViewModel(
             is TicTacToeUIEvent.MakeMove -> makeMove(move = event.move)
             is TicTacToeUIEvent.RestartGame -> restartGame()
             is TicTacToeUIEvent.UpdateText -> updateText(text = event.text)
+            is TicTacToeUIEvent.UpdateVisibilityText -> updateIsVisibleText(isVisible = event.isVisible)
         }
     }
 
