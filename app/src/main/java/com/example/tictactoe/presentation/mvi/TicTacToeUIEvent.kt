@@ -4,5 +4,5 @@ sealed interface TicTacToeUIEvent {
     data object DrawBoard : TicTacToeUIEvent
     data class MakeMove(val move: String) : TicTacToeUIEvent
     data object RestartGame : TicTacToeUIEvent
-    data class UpdateMove(val move: String) : TicTacToeUIEvent
+    data class UpdateMove(val text: String) : TicTacToeUIEvent
 }

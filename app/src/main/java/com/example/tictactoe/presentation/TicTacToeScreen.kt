@@ -51,12 +51,12 @@ fun TicTacToeScreen(
 
         when {
             !uiState.isFinished && uiState.error == null -> {
-                viewModel.onEvent(event = TicTacToeUIEvent.UpdateMove(move = "Current Player: ${uiState.currentTurn}"))
+                viewModel.onEvent(event = TicTacToeUIEvent.UpdateMove(text = "Current Player: ${uiState.currentTurn}"))
                 isVisibleStateText = true
             }
 
             uiState.error != null -> {
-                viewModel.onEvent(event = TicTacToeUIEvent.UpdateMove(move = "${uiState.error}"))
+                viewModel.onEvent(event = TicTacToeUIEvent.UpdateMove(text = "${uiState.error}"))
                 isVisibleStateText = true
             }
 

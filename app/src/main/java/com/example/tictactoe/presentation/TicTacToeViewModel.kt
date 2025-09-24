@@ -19,7 +19,7 @@ class TicTacToeViewModel(
             is TicTacToeUIEvent.DrawBoard -> updateBoard()
             is TicTacToeUIEvent.MakeMove -> makeMove(move = event.move)
             is TicTacToeUIEvent.RestartGame -> restartGame()
-            is TicTacToeUIEvent.UpdateMove -> updateText(text = event.move)
+            is TicTacToeUIEvent.UpdateMove -> updateText(text = event.text)
         }
     }
 
