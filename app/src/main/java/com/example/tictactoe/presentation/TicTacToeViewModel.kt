@@ -15,18 +15,12 @@ class TicTacToeViewModel(
 
     private fun onEvent(event: TicTacToeUIEvent) {
         when (event) {
-            is TicTacToeUIEvent.DrawBoard -> {
-
-            }
+            is TicTacToeUIEvent.DrawBoard -> updateBoard()
         }
     }
 
     private fun updateBoard() {
         _uiState.value = _uiState.value.copy(board = ticTacToe.getBoard())
-    }
-
-    init {
-
     }
 
     fun makeMove(move: String) {
