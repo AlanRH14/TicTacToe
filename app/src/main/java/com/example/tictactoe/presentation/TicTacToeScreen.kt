@@ -76,7 +76,7 @@ fun TicTacToeScreen(
         }
 
         AnimatedVisibility(visible = isVisibleStateText) {
-            Text(textState)
+            Text(text = uiState.textState)
         }
 
         Spacer(modifier = Modifier.height(SpacerPadding))
