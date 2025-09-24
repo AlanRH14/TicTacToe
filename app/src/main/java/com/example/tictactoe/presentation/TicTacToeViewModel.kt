@@ -78,7 +78,7 @@ class TicTacToeViewModel(
         }
     }
 
-    private fun updateMove(move: String) {
-        _uiState.update { it.copy(move = move) }
+    private fun updateMove(text: String) {
+        _uiState.update { it.copy(move = text) }
     }
 }
