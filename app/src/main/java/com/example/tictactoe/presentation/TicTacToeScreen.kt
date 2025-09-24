@@ -56,7 +56,7 @@ fun TicTacToeScreen(
             }
 
             uiState.error != null -> {
-                textState = "${uiState.error}"
+                viewModel.onEvent(event = TicTacToeUIEvent.UpdateMove(move = "${uiState.error}"))
                 isVisibleStateText = true
             }
 
