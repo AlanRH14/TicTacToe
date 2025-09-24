@@ -6,6 +6,7 @@ import com.example.tictactoe.presentation.mvi.TicTacToeUIEvent
 import com.example.tictactoe.utils.StatusGame
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
 
 class TicTacToeViewModel(
     private val ticTacToe: TicTacToeHandler
@@ -22,13 +23,18 @@ class TicTacToeViewModel(
     }
 
     private fun updateBoard() {
-        _uiState.value = _uiState.value.copy(board = ticTacToe.getBoard())
+        _uiState.update { it.copy(board = ticTacToe.getBoard()) }
     }
 
     private fun makeMove(move: String) {
         when (val statusGame = ticTacToe.makeMove(move)) {
             is StatusGame.Progress -> {
-                _uiState.value = _uiState.value.copy(currentTurn = statusGame.turn, error = null)
+                _uiState.update {
+                    it.copy(
+                        currentTurn = statusGame.turn,
+                        error = null
+                    )
+                }
             }
 
             is StatusGame.Draw -> {
