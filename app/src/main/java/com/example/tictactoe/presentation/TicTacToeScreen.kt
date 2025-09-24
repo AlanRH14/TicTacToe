@@ -74,7 +74,7 @@ fun TicTacToeScreen(
             }
         }
 
-        AnimatedVisibility(visible = isVisibleStateText) {
+        AnimatedVisibility(visible = uiState.isVisibleText) {
             Text(text = uiState.textState)
         }
 
