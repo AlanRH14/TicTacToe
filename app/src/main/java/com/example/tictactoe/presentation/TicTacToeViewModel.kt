@@ -17,6 +17,7 @@ class TicTacToeViewModel(
         when (event) {
             is TicTacToeUIEvent.DrawBoard -> updateBoard()
             is TicTacToeUIEvent.MakeMove -> makeMove(move = event.move)
+            is TicTacToeUIEvent.RestartGame -> restartGame()
         }
     }
 
@@ -51,7 +52,7 @@ class TicTacToeViewModel(
         }
     }
 
-    fun restartGame() {
+    private fun restartGame() {
         ticTacToe.restartGame()
 
         _uiState.value = _uiState.value.copy(
