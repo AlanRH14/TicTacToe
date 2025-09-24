@@ -81,4 +81,8 @@ class TicTacToeViewModel(
     private fun updateText(text: String) {
         _uiState.update { it.copy(textState = text) }
     }
+
+    private fun updateIsVisibleText(isVisible: Boolean) {
+        _uiState.update { it.copy(isVisibleText = isVisible) }
+    }
 }
