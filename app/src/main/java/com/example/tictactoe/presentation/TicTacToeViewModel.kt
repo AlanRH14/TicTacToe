@@ -57,7 +57,7 @@ class TicTacToeViewModel(
             }
 
             is StatusGame.Error -> {
-                _uiState.value = _uiState.value.copy(error = statusGame.message)
+                _uiState.update { it.copy(error = statusGame.message) }
             }
         }
     }
