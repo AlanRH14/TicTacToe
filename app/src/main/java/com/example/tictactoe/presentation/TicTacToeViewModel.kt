@@ -3,6 +3,7 @@ package com.example.tictactoe.presentation
 import androidx.lifecycle.ViewModel
 import com.example.tictactoe.domain.TicTacToeHandler
 import com.example.tictactoe.presentation.mvi.TicTacToeUIEvent
+import com.example.tictactoe.presentation.mvi.UIState
 import com.example.tictactoe.utils.StatusGame
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow

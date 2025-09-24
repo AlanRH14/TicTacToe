@@ -15,7 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.tictactoe.presentation.UIState
+import com.example.tictactoe.presentation.mvi.UIState
 
 @Composable
 fun Board(

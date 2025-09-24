@@ -1,4 +1,4 @@
-package com.example.tictactoe.presentation
+package com.example.tictactoe.presentation.mvi
 
 data class UIState(
     val board: List<MutableList<Char>> = emptyList(),
