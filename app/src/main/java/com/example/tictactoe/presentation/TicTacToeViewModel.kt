@@ -2,6 +2,7 @@ package com.example.tictactoe.presentation
 
 import androidx.lifecycle.ViewModel
 import com.example.tictactoe.domain.TicTacToeHandler
+import com.example.tictactoe.presentation.mvi.TicTacToeUIEvent
 import com.example.tictactoe.utils.StatusGame
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -11,6 +12,10 @@ class TicTacToeViewModel(
 ) : ViewModel() {
     private val _uiState = MutableStateFlow(UIState())
     val uiState = _uiState.asStateFlow()
+
+    private fun onEvent(event: TicTacToeUIEvent) {
+
+    }
 
     init {
         _uiState.value = _uiState.value.copy(board = ticTacToe.getBoard())
