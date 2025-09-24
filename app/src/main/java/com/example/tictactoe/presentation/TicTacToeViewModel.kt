@@ -14,7 +14,11 @@ class TicTacToeViewModel(
     val uiState = _uiState.asStateFlow()
 
     private fun onEvent(event: TicTacToeUIEvent) {
+        when (event) {
+            is TicTacToeUIEvent.DrawBoard -> {
 
+            }
+        }
     }
 
     init {
