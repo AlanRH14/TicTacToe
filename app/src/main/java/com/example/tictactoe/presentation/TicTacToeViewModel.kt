@@ -19,7 +19,7 @@ class TicTacToeViewModel(
             is TicTacToeUIEvent.DrawBoard -> updateBoard()
             is TicTacToeUIEvent.MakeMove -> makeMove(move = event.move)
             is TicTacToeUIEvent.RestartGame -> restartGame()
-            is TicTacToeUIEvent.UpdateMove -> updateMove(move = event.move)
+            is TicTacToeUIEvent.UpdateMove -> updateText(text = event.move)
         }
     }
 
@@ -78,7 +78,7 @@ class TicTacToeViewModel(
         }
     }
 
-    private fun updateMove(text: String) {
+    private fun updateText(text: String) {
         _uiState.update { it.copy(move = text) }
     }
 }
