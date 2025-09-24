@@ -65,13 +65,15 @@ class TicTacToeViewModel(
     private fun restartGame() {
         ticTacToe.restartGame()
 
-        _uiState.value = _uiState.value.copy(
-            board = ticTacToe.getBoard(),
-            currentTurn = 'X',
-            error = null,
-            winner = null,
-            isFinished = false,
-            isDraw = false
-        )
+        _uiState.update {
+            it.copy(
+                board = ticTacToe.getBoard(),
+                currentTurn = 'X',
+                error = null,
+                winner = null,
+                isFinished = false,
+                isDraw = false
+            )
+        }
     }
 }
