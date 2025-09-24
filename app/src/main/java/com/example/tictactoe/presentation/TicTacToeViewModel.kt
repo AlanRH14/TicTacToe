@@ -20,7 +20,7 @@ class TicTacToeViewModel(
             is TicTacToeUIEvent.MakeMove -> makeMove(move = event.move)
             is TicTacToeUIEvent.RestartGame -> restartGame()
             is TicTacToeUIEvent.UpdateText -> updateText(text = event.text)
-            is TicTacToeUIEvent.UpdateVisibilityText -> updateIsVisibleText(isVisible = event.isVisible)
+            is TicTacToeUIEvent.UpdateVisibilityText -> updateVisibilityText(isVisible = event.isVisible)
         }
     }
 
@@ -83,7 +83,7 @@ class TicTacToeViewModel(
         _uiState.update { it.copy(textState = text) }
     }
 
-    private fun updateIsVisibleText(isVisible: Boolean) {
+    private fun updateVisibilityText(isVisible: Boolean) {
         _uiState.update { it.copy(isVisibleText = isVisible) }
     }
 }
